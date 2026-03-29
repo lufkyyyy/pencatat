@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencatat Keuangan - Pemasukan & Pengeluaran</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Pencatat Keuangan</h1>
+            <p>Tambahkan pemasukan & pengeluaran Anda secara otomatis</p>
+        </header>
+
+        <section class="form-section">
+            <form id="recordForm">
+                <div>
+                    <label for="date">Tanggal:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div>
+                    <label for="type">Jenis:</label>
+                    <select id="type" required>
+                        <option value="income">Pemasukan</option>
+                        <option value="expense">Pengeluaran</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="amount">Jumlah (Rp):</label>
+                    <input type="number" id="amount" step="1000" min="0" required>
+                </div>
+                <div>
+                    <label for="description">Keterangan:</label>
+                    <textarea id="description" rows="2" required></textarea>
+                </div>
+                <button type="submit">Tambah Catatan</button>
+            </form>
+        </section>
+
+        <section class="table-section">
+            <h2>Daftar Transaksi</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Jumlah</th>
+                        <th>Jenis</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody id="recordsTableBody">
+                    <!-- Records will be inserted here by JS -->
+                </tbody>
+            </table>
+
+            <div class="summary">
+                <div>
+                    <div>Total Pemasukan</div>
+                    <div class="summary-value total-income" id="totalIncome">Rp 0</div>
+                </div>
+                <div>
+                    <div>Total Pengeluaran</div>
+                    <div class="summary-value total-expense" id="totalExpense">Rp 0</div>
+                </div>
+                <div>
+                    <div>Tabungan/Sisa</div>
+                    <div class="summary-value balance" id="balance">Rp 0</div>
+                </div>
+            </div>
+
+            <button id="clearAll" style="width: 100%; margin-top: 20px;">Hapus Semua Data</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
